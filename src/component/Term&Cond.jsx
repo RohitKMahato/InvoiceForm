@@ -3,9 +3,9 @@ import React from 'react';
 
 const TermsAndConditions = ({ qrCodeUrl }) => {
   return (
-    <div className=" border border-gray-300 p-4 ">
+    <div className=" border border-gray-300 p-2 ">
       <div className="space-y-1">
-      <h6 className="font-medium mb-0.5 text-[10px]">Terms & Conditions</h6>
+      <h6 className="font-medium mb-0.5 text-[10px] text-left">Terms & Conditions</h6>
       <div className="space-y-0.5 text-[10px]"> {/* Smaller font size */}
   <p className="flex gap-0.5"> 
     <span>1.</span>
@@ -26,7 +26,7 @@ const TermsAndConditions = ({ qrCodeUrl }) => {
 </div>
 
         
-        <div className="mt-4 flex items-start gap-4 text-[10px]">
+        <div className="mt-4 flex items-start gap-2 text-[10px]">
           {qrCodeUrl ? (
             <img 
               src={qrCodeUrl} 

@@ -16,10 +16,9 @@ import InvoiceForm from './component/InvoiceForm'
 
 function App() {
   const [count, setCount] = useState(0)
-
   return (
     <>
-      <div className='min-h-screen bg-gray-100 py-0 screen-only'>
+      <div className='min-h-screen py-0 screen-only'>
         {/* <Form /> */}
 
 

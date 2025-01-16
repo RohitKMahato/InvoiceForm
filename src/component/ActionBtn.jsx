@@ -96,11 +96,17 @@
 
 
 
+
+
+
+
+
+
+
+
 import React from 'react';
 import { Download, Printer } from 'lucide-react';
 import html2pdf from 'html2pdf.js';
-
-
 
 const ActionButtons = () => {
   // Function to handle printing
@@ -111,7 +117,11 @@ const ActionButtons = () => {
   // Function to save the content as an HTML file
   const handleSave = () => {
     const content = document.querySelector('.print-container');
-    const clone = content.cloneNode(true);
+
+    if (!content) {
+      console.error('Print container not found!');
+      return;
+    }
 
     const html = `
       <!DOCTYPE html>
@@ -138,7 +148,7 @@ const ActionButtons = () => {
           </style>
         </head>
         <body>
-          ${clone.outerHTML}
+          ${content.innerHTML}
         </body>
       </html>
     `;
@@ -162,6 +172,7 @@ const ActionButtons = () => {
       return;
     }
 
+    setTimeout(() => {
     const options = {
       margin: 10,
       filename: 'invoice.pdf',
@@ -171,36 +182,46 @@ const ActionButtons = () => {
     };
 
     html2pdf().set(options).from(element).save();
-  };
+  }, 100);
+}
 
   return (
-    <div className="fixed bottom-4 right-4 flex gap-2 screen-only">
-      {/* Print Button */}
-      <button
-        onClick={handlePrint}
-        className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
-      >
-        <Printer size={20} />
-        Print
-      </button>
+    <div>
+      {/* Action Buttons */}
+      <div className="fixed bottom-4 right-4 flex gap-2 no-print">
+        {/* Print Button */}
+        <button
+          onClick={handlePrint}
+          className="flex items-center justify-center w-10 h-10 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
+          aria-label="Print"
+        >
+          <Printer size={20} />
+        </button>
 
-      {/* Save as HTML Button */}
-      <button
-        onClick={handleSave}
-        className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors"
-      >
-        <Download size={20} />
-        Save
-      </button>
+        {/* Save as HTML Button */}
+        <button
+          onClick={handleSave}
+          className="flex items-center justify-center w-10 h-10 bg-green-600 text-white rounded-full hover:bg-green-700 transition-colors"
+          aria-label="Save as HTML"
+        >
+          <Download size={20} />
+        </button>
 
-      {/* Download as PDF Button */}
-      <button
-        onClick={handleDownloadPDF}
-        className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors"
-      >
-        <Download size={20} />
-        Download PDF
-      </button>
+        {/* Download as PDF Button */}
+        <button
+          onClick={handleDownloadPDF}
+          className="flex items-center justify-center w-10 h-10 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-colors"
+          aria-label="Download PDF"
+        >
+          <Download size={20} />
+        </button>
+      </div>
+
+      {/* Content to Print */}
+      <div id="invoice-preview" className="print-container">
+        {/* <h1>Invoice Content</h1>
+        <p>This is the content of the invoice that will be printed or saved.</p> */}
+      </div>
     </div>
   );
 };

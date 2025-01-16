@@ -38,5 +38,12 @@
 }
 
 .read-the-docs {
-  color: #888;
+  color: #8e8d8d;
 }
+
+  @media print {
+    .no-print {
+      display: none;
+    }
+  }
+

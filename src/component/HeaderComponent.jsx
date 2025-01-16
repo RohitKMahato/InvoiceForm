@@ -12,14 +12,14 @@ export default function HeaderComponent() {
         />
         <div>
           <h1 className="font-bold text-[13px]">Ishanee Villas Tech Private Limited</h1>
-          <p className="text-[10px] leading-[1.3] font-bold ">
+          <p className="text-[10px] leading-[1.3] font-bold text-left">
             CTA252, The Crest, <br />
             DLF 5, <br />
             Park Drive, <br />
             Gurugram Haryana 122011, <br />
             India
           </p>
-          <p className="text-[10px] font-medium mt-0.5">GSTIN 06AAGCI9865C1ZD</p>
+          <p className="text-[10px] font-medium mt-0.5 text-left">GSTIN 06AAGCI9865C1ZD</p>
         </div>
       </div>
       <div className="ml-8">
