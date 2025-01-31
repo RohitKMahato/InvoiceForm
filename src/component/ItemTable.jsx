@@ -1,56 +1,4 @@
 
-// import React from 'react';
-
-// export default function ItemTable() {
-//   return (
-//     <table className="w-full border-collapse text-xs">
-//       <thead>
-//         <tr>
-//           <th className="border-t border-l border-r border-gray-300 p-1 font-bold text-left whitespace-nowrap ">S.L.<br />No</th>
-//           <th className="border-t border-l border-r border-gray-300 p-1 font-bold text-left">Item & Description</th>
-//           <th className="border-t border-l border-r border-gray-300 p-1 font-bold text-left">SAC</th>
-//           <th className="border-t border-l border-r border-gray-300 p-1 font-bold text-left">Nights</th>
-//           <th className="border-t border-l border-r border-gray-300 p-1 font-bold text-left">Rate (INR)</th>
-//           <th className="border-t border-l border-r border-gray-300 p-1 font-bold text-center border-b" colSpan="2">IGST</th>
-//           <th className="border-t border-l border-r border-gray-300 p-1 font-bold text-left">Amount</th>
-//         </tr>
-//         <tr>
-//           <th className="border-b border-l border-r border-gray-300"></th>
-//           <th className="border-b border-l border-r border-gray-300"></th>
-//           <th className="border-b border-l border-r border-gray-300"></th>
-//           <th className="border-b border-l border-r border-gray-300"></th>
-//           <th className="border-b border-l border-r border-gray-300"></th>
-//           <th className="border-b border-l border-r border-gray-300 p-1 font-normal text-left">%</th>
-//           <th className="border-b border-l border-r border-gray-300 p-1 font-normal text-left">Amt</th>
-//           <th className="border-b border-l border-r border-gray-300"></th>
-//         </tr>
-//       </thead>
-//       <tbody>
-//         <tr>
-//           <td className="border border-gray-300 p-1 text-center">1</td>
-//           <td className="border border-gray-300 p-1">Support Service</td>
-//           <td className="border border-gray-300 p-1">9983</td>
-//           <td className="border border-gray-300 p-1 text-center">1</td>
-//           <td className="border border-gray-300 p-1 text-right">32,75,000.00</td>
-//           <td className="border border-gray-300 p-1 text-right">18%</td>
-//           <td className="border border-gray-300 p-1 text-right">5,89,500.00</td>
-//           <td className="border border-gray-300 p-1 text-right">32,75,000.00</td>
-//         </tr>
-//       </tbody>
-//     </table>
-//   );
-// }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -85,75 +33,85 @@ export default function ItemTable() {
     setItems(newItems);
   };
 
+  // 
+  
   const addItem = () => {
-    setItems([
-      ...items,
+    setItems(prevItems => [
+      ...prevItems,
       {
-        slNo: items.length + 1,
+        slNo: prevItems.length + 1,
         itemDescription: "",
         sac: "",
         nights: 0,
-        rate: 0.0,
+        rate: 0,
         cgstPercentage: 0,
-        cgstAmount: 0.0,
+        cgstAmount: 0,
         igstPercentage: 0,
-        igstAmount: 0.0,
-        amount: 0.0,
-      },
+        igstAmount: 0,
+        amount: 0,
+      }
     ]);
   };
-
+  
   const removeItem = (index) => {
-    const newItems = items.filter((_, i) => i !== index);
-    setItems(newItems);
+    // Only remove if more than one item exists
+    if (items.length > 1) {
+      setItems(prevItems => 
+        prevItems.filter((_, i) => i !== index).map((item, idx) => ({
+          ...item,
+          slNo: idx + 1  // Reset serial numbers
+        }))
+      );
+    }
   };
 
   return (
     <div className="overflow-x-auto">
       <table className="w-full border-collapse text-xs">
         <thead>
+        <tr>
+          <th className="border-t border-l border-r border-gray-300 p-1 font-bold text-center w-6">
+            S.L.<br />No
+          </th>
+          <th className="border-t border-l border-r border-gray-300 p-1 font-bold text-left w-28">
+            Item & Description
+          </th>
+          <th className="border-t border-l border-r border-gray-300 p-1 font-bold text-center w-10">
+            SAC
+          </th>
+          <th className="border-t border-l border-r border-gray-300 p-1 font-bold text-center w-10">
+            Nights
+          </th>
+          <th className="border-t border-l border-r border-gray-300 p-1 font-bold text-right w-16">
+            Rate (INR)
+          </th>
+          <th className="border-t border-l border-r border-gray-300 p-1 font-bold text-center w-20" colSpan="2">
+            CGST
+          </th>
+          <th className="border-t border-l border-r border-gray-300 p-1 font-bold text-center w-20" colSpan="2">
+            IGST
+          </th>
+          <th className="border-t border-l border-r border-gray-300 p-1 font-bold text-right w-16">
+            Amount
+          </th>
+          <th className="border-t border-l border-r border-gray-300 p-1 font-bold text-center w-10">
+            Actions
+          </th>
+        </tr>
+
           <tr>
-            <th className="border-t border-l border-r border-gray-300 p-1 font-bold text-center w-8">
-              S.L.<br />No
-            </th>
-            <th className="border-t border-l border-r border-gray-300 p-1 font-bold text-left w-48">
-              Item & Description
-            </th>
-            <th className="border-t border-l border-r border-gray-300 p-1 font-bold text-center w-8">
-              SAC
-            </th>
-            <th className="border-t border-l border-r border-gray-300 p-1 font-bold text-center w-8">
-              Nights
-            </th>
-            <th className="border-t border-l border-r border-gray-300 p-1 font-bold text-right w-2">
-              Rate (INR)
-            </th>
-            <th className="border-t border-l border-r border-gray-300 p-1 font-bold text-center w-18" colSpan="2">
-              CGST
-            </th>
-            <th className="border-t border-l border-r border-gray-300 p-1 font-bold text-center w-15" colSpan="2">
-              IGST
-            </th>
-            <th className="border-t border-l border-r border-gray-300 p-1 font-bold text-right w-2">
-              Amount
-            </th>
-            <th className="border-t border-l border-r border-gray-300 p-1 font-bold text-center w-12">
-              Actions
-            </th>
-          </tr>
-          <tr>
             <th className="border-b border-l border-r border-gray-300"></th>
             <th className="border-b border-l border-r border-gray-300"></th>
             <th className="border-b border-l border-r border-gray-300"></th>
             <th className="border-b border-l border-r border-gray-300"></th>
             <th className="border-b border-l border-r border-gray-300"></th>
-            <th className="border-b border-l border-r border-gray-300 p-1 font-normal text-left w-12">
+            <th className="border-b border-l border-r border-gray-300 p-1 font-normal text-left w-6">
               %
             </th>
             <th className="border-b border-l border-r border-gray-300 p-1 font-normal text-left w-12">
               Amt
             </th>
-            <th className="border-b border-l border-r border-gray-300 p-1 font-normal text-left w-12">
+            <th className="border-b border-l border-r border-gray-300 p-1 font-normal text-left w-6">
               %
             </th>
             <th className="border-b border-l border-r border-gray-300 p-1 font-normal text-left w-12">
@@ -272,11 +230,26 @@ export default function ItemTable() {
                   className="w-full text-right border-none focus:outline-none"
                 />
               </td>
-              <td className="border text-center">
+              {/* <td className="border text-center">
                           <button onClick={() => removeItem(index)} className="text-red-500 text-xs text-[8px]">Remove -</button>
                           <button onClick={addItem} className="text-blue-500 text-xs ml-2 text-[8px]">Add Row+</button>
-                        </td>
-
+                        </td> */}
+                            <td className="border text-center">
+                                    {items.length > 1 && (
+                                      <button 
+                                        onClick={() => removeItem(index)} 
+                                        className="text-red-500 text-xs text-[8px]"
+                                      >
+                                        Remove -
+                                      </button>
+                                    )}
+                                    <button 
+                                      onClick={addItem} 
+                                      className="text-blue-500 text-xs ml-2 text-[8px]"
+                                    >
+                                      Add Row+
+                                    </button>
+                                  </td>
             </tr>
           ))}
         </tbody>

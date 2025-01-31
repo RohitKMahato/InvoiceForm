@@ -1,33 +1,3 @@
-// import React from 'react';
-
-// export default function BillingComponent() {
-//   return (
-//     <div className="border border-gray-300">
-//       {/* Bill To Header */}
-//       <div className="border-b border-gray-300 px-3 py-1 text-xs font-bold text-left">
-//         Bill To
-//       </div>
-      
-//       {/* Company Details */}
-//       <div className="px-3 py-2 space-y-1 text-xs">
-//         <p className="font-bold text-left">Rakesh Kumar Sharma</p>
-//         <p className='text-left'>F No. A-803, GH-98, SECTOR 54, GURGAON, Gurugram, Haryana, 122002  Haryana
-//         India</p>
-       
-//         <p className='text-left'>GSTIN 30AAGCI9865C1ZM</p>
-//       </div>
-      
-     
-//     </div>
-//   );
-// }
-
-
-
-
-
-
-
 
 
 
@@ -52,7 +22,7 @@ const BillingComponent = () => {
   return (
     <div className="border border-gray-300">
       {/* Bill To Header */}
-      <div className="border-b border-gray-300 px-3 py-1 text-[10px] font-bold text-left">
+      <div className="border-b border-gray-300 px-3  text-[10px] font-bold text-left">
         Bill To
       </div>
       
@@ -64,7 +34,7 @@ const BillingComponent = () => {
             type="text"
             value={companyDetails.name}
             onChange={(e) => handleInputChange('name', e.target.value)}
-            className="p-0.5 text-[10px] w-5/6 outline-none"
+            className="p-0 text-[10px] w-5/6 outline-none"
           />
         </div>
         <div className="flex items-center space-x-1">

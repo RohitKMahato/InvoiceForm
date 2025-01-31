@@ -1,3 +1,57 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    img {
+      display: initial;
+    }
+  }
+
+  @layer base {
+    img {
+      display: initial;
+      max-width: 100%; /* Ensure images don't overflow */
+      height: auto; /* Maintain aspect ratio */
+    }
+  }
+
+  @layer base {
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Your-Font', sans-serif; /* Add custom font */
+      font-weight: bold; /* Adjust font weight */
+    }
+  }
+
+  @layer base {
+    img {
+      display: initial !important;
+    }
+  }
+
+@layer base {
+  img {
+    display: initial;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.print-container {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  background: white;
+  box-sizing: border-box;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+@media screen {
+  .print-container {
+    width: 100%;
+    max-width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+  }
+}
