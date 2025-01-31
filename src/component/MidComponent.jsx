@@ -127,6 +127,7 @@ export default function MidComponent() {
             <input
               type="text"
               value="Ishanee Villas Tech PVT LTD"
+              readOnly
               className="border-none focus:outline-none"
             />
             <img 
