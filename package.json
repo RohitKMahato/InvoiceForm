@@ -6,6 +6,7 @@
   "homepage": "https://RohitKMahato.github.io/InvoiceForm/",
   "scripts": {
     "start": "vite",
+    "predeploy": "npm run build && npm vite build",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
