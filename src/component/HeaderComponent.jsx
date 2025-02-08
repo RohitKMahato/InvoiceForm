@@ -1,6 +1,6 @@
 
 import React from 'react';
-// import ogimage from './assets/ogimage.png';
+// import logo from './assets/ogimage.png';
 
 export default function HeaderComponent() {
   return (

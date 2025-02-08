@@ -48,7 +48,9 @@
   .no-print {
     display: none; /* Hide elements with .no-print class in print */
   }
-
+  /* .action-buttons {
+    display: none ;
+  } */
   body {
     margin: 0;
     padding: 0;
@@ -59,7 +61,7 @@
   width: 210mm; /* For PDF export */
   min-height: 297mm;
   padding: 0;
-  margin: 0 auto;
+  margin: 0;
   background: white;
   box-sizing: border-box;
   page-break-inside: avoid;
@@ -72,6 +74,9 @@
     max-width: 210mm;
     min-height: 297mm;
     margin: 0 auto;
+  }
+  .print-hidden {
+    display: none;
   }
 }
 

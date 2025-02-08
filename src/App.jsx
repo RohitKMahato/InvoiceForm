@@ -12,6 +12,8 @@ import FooterSec from './component/FooterSec';
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { FaDownload, FaPrint } from "react-icons/fa"; 
+
+
 const App = () => {
   const pdfRef = useRef();
 
@@ -62,11 +64,12 @@ const App = () => {
       </div>
 
       {/* Download & Print Buttons */}
-      <div className="fixed bottom-4 right-4 flex space-x-2">
+      <div className="fixed bottom-4 right-4 flex space-x-2 print:hidden">
         <button
           onClick={printInvoice} // ✅ Calls print function instead of downloadPDF
           className="flex items-center justify-center w-10 h-10 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
           aria-label="Print"
+          title=' Print'
         >
           <FaPrint size={20} />
         </button>

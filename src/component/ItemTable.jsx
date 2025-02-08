@@ -94,7 +94,7 @@ export default function ItemTable() {
           <th className="border-t border-l border-r border-gray-300 p-1 font-bold text-right w-16">
             Amount
           </th>
-          <th className="border-t border-l border-r border-gray-300 p-1 font-bold text-center w-10">
+          <th className="border-t border-l border-r border-gray-300 p-1 font-bold text-center w-10 action-buttons">
             Actions
           </th>
         </tr>
@@ -167,7 +167,7 @@ export default function ItemTable() {
               <td className="border border-gray-300 p-1 text-right">
                 <input
                   type="number"
-                  step="0.01"
+                  step="1"
                   value={item.rate}
                   onChange={(e) =>
                     handleInputChange(index, "rate", parseFloat(e.target.value))
@@ -178,7 +178,7 @@ export default function ItemTable() {
               <td className="border border-gray-300 p-0.5 text-right">
                 <input
                   type="number"
-                  step="0.01"
+                  step="1"
                   value={item.cgstPercentage}
                   onChange={(e) =>
                     handleInputChange(index, "cgstPercentage", parseFloat(e.target.value))
@@ -189,7 +189,7 @@ export default function ItemTable() {
               <td className="border border-gray-300 p-0.5 text-right">
                 <input
                   type="number"
-                  step="0.01"
+                  step="1"
                   value={item.cgstAmount}
                   onChange={(e) =>
                     handleInputChange(index, "cgstAmount", parseFloat(e.target.value))
@@ -200,7 +200,7 @@ export default function ItemTable() {
               <td className="border border-gray-300 p-0.5 text-right">
                 <input
                   type="number"
-                  step="0.01"
+                  step="1"
                   value={item.igstPercentage}
                   onChange={(e) =>
                     handleInputChange(index, "igstPercentage", parseFloat(e.target.value))
@@ -211,7 +211,7 @@ export default function ItemTable() {
               <td className="border border-gray-300 p-0.5 text-right">
                 <input
                   type="number"
-                  step="0.01"
+                  step="1"
                   value={item.igstAmount}
                   onChange={(e) =>
                     handleInputChange(index, "igstAmount", parseFloat(e.target.value))
@@ -222,7 +222,7 @@ export default function ItemTable() {
               <td className="border border-gray-300 p-1 text-right">
                 <input
                   type="number"
-                  step="0.01"
+                  step="1"
                   value={item.amount}
                   onChange={(e) =>
                     handleInputChange(index, "amount", parseFloat(e.target.value))
@@ -234,7 +234,7 @@ export default function ItemTable() {
                           <button onClick={() => removeItem(index)} className="text-red-500 text-xs text-[8px]">Remove -</button>
                           <button onClick={addItem} className="text-blue-500 text-xs ml-2 text-[8px]">Add Row+</button>
                         </td> */}
-                            <td className="border text-center">
+                            <td className="border text-center action-buttons ">
                                     {items.length > 1 && (
                                       <button 
                                         onClick={() => removeItem(index)} 
@@ -258,3 +258,23 @@ export default function ItemTable() {
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
