@@ -1,25 +1,23 @@
-
-
-
-
-
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 export default function MidComponent() {
-  const [totalInWords, setTotalInWords] = useState('Indian Rupee Thirty-Eight Lakh Sixty-Four Thousand Five Hundred Only')
-  const [notes, setNotes] = useState('Thanks for your business.')
-  const [accountHolderName, setAccountHolderName] = useState('Ishanee Villas Tech Private Limited.')
-  const [bankName, setBankName] = useState('ICICI Bank Limited.')
-  const [accountNumber, setAccountNumber] = useState('114705001875')
-  const [branchIFSCCode, setBranchIFSCCode] = useState('Gurgaon Sector 57 Branch & ICIC0001147')
-  const [subTotal, setSubTotal] = useState('32,75,000.00')
-  const [totalTaxableAmount, setTotalTaxableAmount] = useState('32,75,000.00')
-  const [igstAmount, setIGSTAmount] = useState('5,89,500.00')
-  const [total, setTotal] = useState('₹38,64,500.00')
-  const [balanceDue, setBalanceDue] = useState('₹38,64,500.00')
+  const [totalInWords, setTotalInWords] = useState('Indian Rupee Thirty-Eight Lakh Sixty-Four Thousand Five Hundred Only');
+  const [notes, setNotes] = useState('Thanks for your business.');
+  const [accountHolderName, setAccountHolderName] = useState('Ishanee Villas Tech Private Limited.');
+  const [bankName, setBankName] = useState('ICICI Bank Limited.');
+  const [accountNumber, setAccountNumber] = useState('114705001875');
+  const [branchIFSCCode, setBranchIFSCCode] = useState('Gurgaon Sector 57 Branch & ICIC0001147');
+  const [subTotal, setSubTotal] = useState('32,75,000.00');
+  const [totalTaxableAmount, setTotalTaxableAmount] = useState('32,75,000.00');
+  const [igstAmount, setIGSTAmount] = useState('5,89,500.00');
+  const [cgstAmount, setCGSTAmount] = useState('2,94,750.00');
+  const [sgstAmount, setSGSTAmount] = useState('2,94,750.00');
+  const [total, setTotal] = useState('₹38,64,500.00');
+  const [balanceDue, setBalanceDue] = useState('₹38,64,500.00');
 
   return (
     <div className="flex justify-between text-xs mt-4">
+      
       {/* Left Section */}
       <div className="w-1/2">
         <div className="border border-gray-300 p-3 space-y-2">
@@ -73,55 +71,89 @@ export default function MidComponent() {
       </div>
 
       {/* Right Section */}
-      <div className="w-1/2 ml-4">
-        <div className="space-y-1 text-right">
-          <div className="flex justify-between">
-            <span>Sub Total</span>
+      <div className="w-1/2 ml-8">
+        <div className="space-y-1">
+          
+          {/* Sub Total */}
+          <div className="flex items-center justify-between mr-12">
+            <span className="text-left">Sub Total</span>
             <input
               type="text"
               value={subTotal}
               onChange={(e) => setSubTotal(e.target.value)}
-              className="ml-8 border-none focus:outline-none"
+              className="text-right border-none focus:outline-none w-24"
             />
           </div>
-          <div className="flex justify-between">
-            <span>Total Taxable Amount</span>
+
+          {/* Total Taxable Amount */}
+          <div className="flex items-center justify-between mr-12">
+            <span className="text-left">Total Taxable Amount</span>
             <input
               type="text"
               value={totalTaxableAmount}
               onChange={(e) => setTotalTaxableAmount(e.target.value)}
-              className="ml-8 border-none focus:outline-none"
+              className="text-right border-none focus:outline-none w-24"
             />
           </div>
-          <div className="flex justify-between">
-            <span>IGST18 (18%)</span>
+
+          {/* IGST */}
+          <div className="flex items-center justify-between mr-12">
+            <span className="text-left">IGST18 (18%)</span>
             <input
               type="text"
               value={igstAmount}
               onChange={(e) => setIGSTAmount(e.target.value)}
-              className="ml-8 border-none focus:outline-none"
+              className="text-right border-none focus:outline-none w-24"
             />
           </div>
-          <div className="flex justify-between font-medium">
-            <span className='font-bold'>Total</span>
+
+          {/* CGST */}
+          <div className="flex items-center justify-between mr-12">
+            <span className="text-left">CGST9 (9%)</span>
+            <input
+              type="text"
+              value={cgstAmount}
+              onChange={(e) => setCGSTAmount(e.target.value)}
+              className="text-right border-none focus:outline-none w-24"
+            />
+          </div>
+
+          {/* SGST */}
+          <div className="flex items-center justify-between mr-12">
+            <span className="text-left">SGST9 (9%)</span>
+            <input
+              type="text"
+              value={sgstAmount}
+              onChange={(e) => setSGSTAmount(e.target.value)}
+              className="text-right border-none focus:outline-none w-24"
+            />
+          </div>
+
+          {/* Total */}
+          <div className="flex items-center justify-between font-medium mr-12">
+            <span className="font-bold text-left">Total</span>
             <input
               type="text"
               value={total}
               onChange={(e) => setTotal(e.target.value)}
-              className="ml-8 border-none focus:outline-none font-bold"
+              className="text-right border-none focus:outline-none font-bold w-24 "
             />
           </div>
-          <div className="flex justify-between font-medium">
-            <span className='font-bold'>Balance Due</span>
+
+          {/* Balance Due */}
+          <div className="flex items-center justify-between font-medium mr-12">
+            <span className="font-bold text-left">Balance Due</span>
             <input
               type="text"
               value={balanceDue}
               onChange={(e) => setBalanceDue(e.target.value)}
-              className="ml-8 border-none focus:outline-none font-bold"
+              className="text-right border-none focus:outline-none font-bold w-24"
             />
           </div>
+
         </div>
 
+        {/* Signature Section */}
         <div className="mt-8 text-center">
           <div className="flex flex-col items-center">
             <input
@@ -139,7 +171,8 @@ export default function MidComponent() {
             <p className="text-gray-500 text-[10px]">(DSC)</p>
           </div>
         </div>
+        
       </div>
     </div>
-  )
+  );
 }

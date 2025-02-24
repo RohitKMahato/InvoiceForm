@@ -1,4 +1,4 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0;
@@ -44,45 +44,62 @@
   z-index: 1000;
 }
 
+
 @media print {
   .no-print {
-    display: none; /* Hide elements with .no-print class in print */
+    display: none !important;
   }
-  /* .action-buttons {
-    display: none ;
-  } */
+
   body {
     margin: 0;
     padding: 0;
+    background: none !important;
+  }
+
+  #print-container {
+    border: 2px solid black !important;
+    padding: 10px !important;
+    margin: 0 auto !important;
+  }
+
+  .print-container {
+    page-break-before: auto;
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+
+  .item-table td, 
+  .item-table th {
+    padding: 0.1rem !important;
+    white-space: nowrap !important;
   }
 }
 
-.print-container {
-  width: 210mm; /* For PDF export */
-  min-height: 297mm;
-  padding: 0;
-  margin: 0;
+
+.a4-border {
+  width: 210mm;
+  min-height: auto;
+  padding: 40px;
+  margin: auto;
   background: white;
-  box-sizing: border-box;
-  page-break-inside: avoid;
-  break-inside: avoid;
 }
+
 
 @media screen {
   .print-container {
     width: 100%;
     max-width: 210mm;
-    min-height: 297mm;
     margin: 0 auto;
   }
   .print-hidden {
     display: none;
   }
-}
+} */
 
-#print-container {
-  border: 2px solid red;
-}
+
+
+
+
 
 
 

@@ -42,9 +42,9 @@ const FooterSec = () => {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full ">
       <div className=" border-gray-300">
-        <p className="text-[9px] font-medium mb-1 text-left">HSN/SAC Summary:</p>
+        <p className="text-[10px] font-medium mb-1 text-left ml-3">HSN/SAC Summary:</p>
         <table className="w-full border-collapse text-[9px]">
           <thead>
           <tr>

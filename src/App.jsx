@@ -53,7 +53,7 @@ const App = () => {
   return (
     <>
       {/* Invoice Preview */}
-      <div ref={pdfRef} id="invoice-preview" className="min-h-screen screen-only print-container">
+      <div ref={pdfRef} id="print-container">
         <HeaderComponent />
         <InvoiceDetails />
         <BillingComponent />

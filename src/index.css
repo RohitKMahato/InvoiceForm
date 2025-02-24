@@ -3,37 +3,15 @@
 @tailwind utilities;
 
 @layer base {
-    img {
-      display: initial;
-    }
-  }
-
-  @layer base {
-    img {
-      display: initial;
-      max-width: 100%; /* Ensure images don't overflow */
-      height: auto; /* Maintain aspect ratio */
-    }
-  }
-
-  @layer base {
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Your-Font', sans-serif; /* Add custom font */
-      font-weight: bold; /* Adjust font weight */
-    }
-  }
-
-  @layer base {
-    img {
-      display: initial !important;
-    }
-  }
-
-@layer base {
   img {
     display: initial;
-    max-width: 100%;
-    height: auto;
+    max-width: 100%; /* Ensure images don't overflow */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Your-Font', sans-serif; /* Add custom font */
+    font-weight: bold;
   }
 }
 
@@ -53,5 +31,109 @@
     max-width: 210mm;
     min-height: 297mm;
     margin: 0 auto;
+  }
+}
+
+@media print {
+  .print-bg {
+    background-color: inherit;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    background-color: rgb(196, 194, 194);
+  }
+
+  .thead-row th {
+    line-height: 16px; /* Ensures compact spacing when printed */
+  }
+
+  .item-table {
+    width: 100% !important;
+    font-size: 10px !important;
+  }
+
+  .item-table th.print-hidden,
+  .item-table td.print-hidden {
+    display: none !important;
+  }
+
+  .item-table th,
+  .item-table td {
+    padding: 2px !important;
+    line-height: 1.2 !important;
+    vertical-align: top !important;
+  }
+
+  .item-table textarea,
+  .item-table input {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    line-height: 1.2 !important;
+  }
+
+  @page {
+    size: auto;
+    margin: 5mm;
+  }
+}
+
+/* Ensure thead styling is applied for both screen and print */
+.thead-row th {
+  line-height: 18px; /* Adjust spacing visually */
+}
+
+
+
+
+
+
+
+
+/* ✅ Invoice Container: Default A4 Layout */
+#print-container {
+  width: 210mm;  /* Standard A4 width */
+  height: 297mm; /* Standard A4 height */
+  background-color: white;
+  padding: 30px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transform-origin: top left;
+}
+
+/* ✅ Scale Down on Small Screens */
+@media (max-width: 1024px) {
+  #print-container {
+    transform: scale(0.8);  /* 80% size */
+  }
+}
+
+@media (max-width: 768px) {
+  #print-container {
+    transform: scale(0.6);  /* 60% size */
+  }
+}
+
+@media (max-width: 480px) {
+  #print-container {
+    transform: scale(0.4);  /* 40% size */
+  }
+}
+
+/* ✅ Print Mode (Ensures A4 Page Format) */
+@media print {
+  #print-container {
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    padding: 30px; 
+    border: none;
+    box-shadow: none;
+    transform: none !important;  /* No scaling for print */
+  }
+
+  .print-hidden {
+    display: none; /* Hides UI elements */
   }
 }
