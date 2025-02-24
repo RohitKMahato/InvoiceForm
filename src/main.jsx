@@ -28,7 +28,7 @@ import App from './App.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter basename="/invoice-app">  {/* Change "invoice-app" to your repo name */}
+    <BrowserRouter basename="/invoiceForm">  {/* Change "invoice-app" to your repo name */}
       <App />
     </BrowserRouter>
   </StrictMode>
